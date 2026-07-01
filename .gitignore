@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# Environment
+.env
+*.env.local
+
+# Storage (user data — not committed)
+backend/storage/uploads/*
+backend/storage/processed/*
+backend/storage/logs/*
+!backend/storage/uploads/.gitkeep
+!backend/storage/processed/.gitkeep
+!backend/storage/logs/.gitkeep
+
+# Model weights (too large for git — use git-lfs or copy manually)
+backend/storage/weights/*.pt
+ai-engine/runs/
+
+# DB
+*.db
+*.sqlite3
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# AI training artifacts
+ai-engine/data/raw/*
+ai-engine/data/processed/*
+!ai-engine/data/raw/.gitkeep
+!ai-engine/data/processed/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp

@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.env
+storage/uploads/*
+storage/processed/*
+storage/logs/*
+tests/
+.git
