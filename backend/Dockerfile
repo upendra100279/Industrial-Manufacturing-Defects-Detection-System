@@ -1,6 +1,6 @@
 FROM python:3.11-slim
 
-# Install gcc and build tools needed by some packages
+# Install ALL system dependencies including libGL for OpenCV
 RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc \
     g++ \
@@ -9,11 +9,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libxext6 \
     libxrender1 \
     libgomp1 \
+    libgl1-mesa-glx \
+    libglib2.0-dev \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
-# Install CPU-only torch first separately — much smaller than GPU version
+# Install CPU-only torch first — much smaller than GPU version
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir \
     torch==2.4.1+cpu \
