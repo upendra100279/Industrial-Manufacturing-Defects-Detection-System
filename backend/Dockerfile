@@ -1,16 +1,17 @@
 FROM python:3.11-slim
 
-# Install ALL system dependencies including libGL for OpenCV
+# Install system dependencies
+# Note: libgl1-mesa-glx was renamed to libgl1 in Debian Trixie
 RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc \
     g++ \
     libglib2.0-0 \
+    libglib2.0-dev \
     libsm6 \
     libxext6 \
     libxrender1 \
     libgomp1 \
-    libgl1-mesa-glx \
-    libglib2.0-dev \
+    libgl1 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
